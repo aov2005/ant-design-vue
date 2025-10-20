@@ -104,6 +104,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
     autoSize: boolean | { minRows: number, maxRows: number },
     onStart: function,
     onChange: function(string),
+    onSave: function(string),
     onCancel: function,
     onEnd: function,
     triggerType: ('icon' | 'text')[],
@@ -119,6 +120,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | triggerType | 编辑模式触发器类型，图标、文本或者两者都设置（不设置图标作为触发器时它会隐藏） | Array&lt;`icon`\|`text`> | \[`icon`] |  |
 | onCancel | 按 ESC 退出编辑状态时触发 | function | - |  |
 | onChange | 文本域编辑时触发 | function(event) | - |  |
+| onSave | 文本域编辑结束时触发，包含文本域变回文字 | function(event) | - |  |
 | onEnd | 按 ENTER 结束编辑状态时触发 | function | - |  |
 | onStart | 进入编辑中状态时触发 | function | - |  |
 

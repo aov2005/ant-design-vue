@@ -49,6 +49,7 @@ export interface EditConfig {
   tooltip?: boolean;
   onStart?: () => void;
   onChange?: (value: string) => void;
+  onSave?: (value: string) => void;
   onCancel?: () => void;
   onEnd?: () => void;
   maxlength?: number;
@@ -219,6 +220,11 @@ const Base = defineComponent({
     }
 
     function onEditChange(value: string) {
+      const { onSave } = editable.value;
+      if (value !== props.content) {
+        emit('save', value);
+        onSave?.(value);
+      }
       onContentChange(value);
       triggerEdit(false);
     }

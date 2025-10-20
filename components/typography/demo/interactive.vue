@@ -15,7 +15,7 @@ title:
 Provide additional interactive capacity of editable and copyable.
 </docs>
 <template>
-  <a-typography-paragraph v-model:content="editableStr" editable />
+  <a-typography-paragraph v-model:content="editableStr" :editable="{ onSave: saveText }" />
   <a-typography-paragraph v-model:content="customIconStr" editable>
     <template #editableIcon><HighlightOutlined /></template>
     <template #editableTooltip>click to edit text</template>
@@ -85,7 +85,9 @@ watch(editableStr, () => {
   console.log('editableStr', editableStr.value);
 });
 const chooseTrigger = ref<('icon' | 'text')[]>(['icon']);
-
+const saveText = (value: string) => {
+  console.log('saveText', value);
+};
 const radioToState = (input: string): ('icon' | 'text')[] => {
   switch (input) {
     case 'text':
